@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Deploy to Cloudflare Pages
+
+This project uses Next.js static export for Cloudflare Pages.
+
+```text
+Build command: npm run build
+Build output directory: out
+Root directory: /
+Node.js version: 20
+```
+
+The repository includes `wrangler.toml` with `pages_build_output_dir = "./out"`. Add `https://jiandanjiedian.com` as a custom domain in the Cloudflare Pages project after the first successful deployment.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## Learn More
