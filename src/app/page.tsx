@@ -31,7 +31,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">INDEPENDENT VPN TEST LAB · 2026</p>
           <h1>不靠感觉，<br /><em>只看数据。</em></h1>
-          <p className="hero-text">每天测试线路质量，每周给出一个<br />值得信任的选择。</p>
+          <p className="hero-text">每天机场测速，每周机场推荐。<br />用数据做好机场测评、梯子推荐和魔法推荐。</p>
           <a className="outline-button" href="#ranking">查看本周结果 <span>↘</span></a>
         </div>
         <div className="hero-visual" aria-label="线路监测可视化">
