@@ -10,9 +10,9 @@ const providers = [
 ];
 
 const history = [
-  { date: "09.08", name: "LANTERN", note: "晚高峰依然稳定", score: 94 },
-  { date: "09.01", name: "MISTY ROUTE", note: "速度最快的轻量方案", score: 91 },
-  { date: "08.25", name: "NORTHSTAR", note: "预算友好的日常选择", score: 88 },
+  { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, href: "/airports/shunyun" },
+  { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, href: "/airports/huanyuyun" },
+  { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, href: "/airports/jindouyun" },
 ];
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
 
       <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>—</strong><span>/ 待测试</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "18%" }} /></div><div><span>速度表现</span><b style={{ width: "18%" }} /></div><div><span>性价比</span><b style={{ width: "18%" }} /></div></div><span className="verdict">持续测试中</span></div></section>
 
-      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="#archive">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <article className="archive-item" key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></article>)}</div></section>
+      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={item.href} key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
 
       <section className="content-section" id="ranking">
         <div className="section-heading"><div><p className="eyebrow">DAILY SIGNAL</p><h2>今日线路表现</h2></div><div className="tabs">{["全部", "专线", "中转", "低价"].map((tab) => <button className={activeTab === tab ? "tab active" : "tab"} key={tab} onClick={() => setActiveTab(tab)}>{tab}</button>)}</div></div>
