@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 const articles = [
-  { category: "测速方法", date: "2026.09.11", title: "机场 VPN 怎么测才不容易被单次速度误导？", excerpt: "为什么一次测速不能代表长期体验，以及简单节点如何用多地区、多时段和晚高峰复测建立更可靠的结论。", href: "/articles/how-we-test-vpn" },
-  { category: "运营商观察", date: "2026.09.11", title: "移动、联通、电信的机场线路表现有什么差异？", excerpt: "从延迟、抖动、下载速度和连接成功率四个维度，理解同一节点在不同网络运营商下的表现变化。", href: "/articles/isp-comparison" },
-  { category: "选购指南", date: "2026.09.11", title: "晚高峰选机场，应该重点看哪些数据？", excerpt: "晚高峰是判断线路拥堵和稳定性的关键窗口。看懂延迟、速度下降比例和断线记录，避免只看白天峰值。", href: "/articles/peak-hour-vpn" },
+  { category: "测速方法", date: "2026.09.11", title: "机场 VPN 怎么测才不容易被单次速度误导？", excerpt: "为什么一次测速不能代表长期体验，以及简单节点如何用多地区、多时段和晚高峰复测建立更可靠的结论。", href: "/wiki/vpn-test-methodology" },
+  { category: "运营商观察", date: "2026.09.11", title: "移动、联通、电信的机场线路表现有什么差异？", excerpt: "从延迟、抖动、下载速度和连接成功率四个维度，理解同一节点在不同网络运营商下的表现变化。", href: "/wiki/latency-and-jitter" },
+  { category: "选购指南", date: "2026.09.11", title: "晚高峰选机场，应该重点看哪些数据？", excerpt: "晚高峰是判断线路拥堵和稳定性的关键窗口。看懂延迟、速度下降比例和断线记录，避免只看白天峰值。", href: "/wiki/peak-hour-testing" },
 ];
 
 export default function ArticlesPage() {
