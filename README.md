@@ -27,7 +27,17 @@ Root directory: /
 Node.js version: 20
 ```
 
-The repository includes `wrangler.toml` with `pages_build_output_dir = "./out"`. Add `https://jiandanjiedian.com` as a custom domain in the Cloudflare Pages project after the first successful deployment.
+The Next.js configuration uses static export and generates the deployment files in `out/`. Add `https://jiandanjiedian.com` as a custom domain in the Cloudflare Pages project after the first successful deployment.
+
+## IndexNow
+
+After the latest deployment is live, submit the current public URLs with:
+
+```bash
+npm run indexnow
+```
+
+The public key file is available at `https://jiandanjiedian.com/2543451F9B524E9C88E3D644CF47F577.txt`.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

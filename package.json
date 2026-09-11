@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "indexnow": "node scripts/indexnow.mjs",
     "start": "next start",
     "lint": "eslint"
   },
