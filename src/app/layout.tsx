@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   },
   description: "简单节点是独立的机场 VPN 测试与推荐平台，持续记录线路延迟、抖动、下载速度、上传速度、连接成功率、晚高峰表现和 7 天稳定性趋势。我们每天在固定地区运行多轮公开测试，每周发布基于真实数据的机场评测、综合排名、性价比分析和风险提示，帮助用户了解长期表现与适用场景，所有数据仅供比较参考。",
   keywords: ["机场推荐", "机场 VPN", "机场测评", "VPN 测速", "机场排名", "线路稳定性", "晚高峰测速"],
+  verification: {
+    other: {
+      "msvalidate.01": "2543451F9B524E9C88E3D644CF47F577",
+    },
+  },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   openGraph: {
