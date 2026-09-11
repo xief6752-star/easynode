@@ -23,7 +23,7 @@ export default function Home() {
     <main className="site-shell">
       <nav className="topbar">
         <a className="brand" href="#top"><span className="brand-mark">/</span> 简单节点</a>
-        <div className="nav-links"><a href="#ranking">实时排名</a><a href="#reviews">每周评测</a><a href="#articles">测试文章</a><a href="#archive">历史档案</a></div>
+        <div className="nav-links"><a href="#ranking">实时排名</a><a href="#reviews">每周评测</a><a href="/wiki">机场百科</a><a href="#articles">测试文章</a><a href="#archive">历史档案</a></div>
         <button className="status-pill"><span className="live-dot" /> 系统正常</button>
       </nav>
 

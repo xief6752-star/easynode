@@ -12,5 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...["shunyun", "huanyuyun", "jindouyun", "jiuyun"].map((slug) => ({ url: `${baseUrl}/airports/${slug}`, lastModified: updatedAt, changeFrequency: "daily" as const, priority: 0.8 })),
     { url: `${baseUrl}/articles`, lastModified: updatedAt, changeFrequency: "weekly", priority: 0.8 },
     ...["how-we-test-vpn", "isp-comparison", "peak-hour-vpn"].map((slug) => ({ url: `${baseUrl}/articles/${slug}`, lastModified: updatedAt, changeFrequency: "monthly" as const, priority: 0.7 })),
+    { url: `${baseUrl}/wiki`, lastModified: updatedAt, changeFrequency: "weekly", priority: 0.8 },
+    ...["what-is-airport-vpn", "iepl-iplc-dedicated-line", "latency-and-jitter", "peak-hour-testing", "streaming-unlock-testing", "monthly-vs-yearly-plan"].map((slug) => ({ url: `${baseUrl}/wiki/${slug}`, lastModified: updatedAt, changeFrequency: "monthly" as const, priority: 0.7 })),
   ];
 }
