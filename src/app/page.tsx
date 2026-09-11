@@ -42,7 +42,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ticker"><div><span className="ticker-label">TODAY&apos;S SNAPSHOT</span><span>平均延迟 <b>113ms</b></span><span>平均下载 <b>201 Mbps</b></span><span>收录机场 <b>4</b></span></div><span className="updated">SOURCE · YONGJICHANG.COM</span></section>
+      <section className="ticker"><div><span className="ticker-label">TODAY&apos;S SNAPSHOT</span><span>平均延迟 <b>113ms</b></span><span>平均下载 <b>201 Mbps</b></span><span>收录机场 <b>4</b></span></div><span className="updated">UPDATED · 2026.09.11</span></section>
 
       <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>—</strong><span>/ 待测试</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "18%" }} /></div><div><span>速度表现</span><b style={{ width: "18%" }} /></div><div><span>性价比</span><b style={{ width: "18%" }} /></div></div><span className="verdict">持续测试中</span></div></section>
 
