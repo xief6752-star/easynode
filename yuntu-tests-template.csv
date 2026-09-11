@@ -1,0 +1,6 @@
+# 云图机场 VPN 测试数据表：请填写每次测速结果；时间使用 ISO 8601 格式，速度单位为 Mbps，延迟和抖动单位为 ms。,,,,,,,,,,,,,
+testedAt,region,isp,node,protocol,latencyMs,jitterMs,downloadMbps,uploadMbps,connectionSuccess,peakHour,errorType,errorMessage,notes
+字段说明,测试地区,网络运营商,节点名称,使用协议,延迟毫秒,抖动毫秒,下载速度 Mbps,上传速度 Mbps,连接是否成功,是否晚高峰,错误类型,错误详情,补充备注
+2026-09-11T20:30:00+08:00,中国大陆,移动,日本,anytls,112,10,186,72,TRUE,TRUE,,,晚高峰首轮测试
+2026-09-11T20:30:00+08:00,中国大陆,联通,日本,anytls,121,13,176,70,TRUE,TRUE,,,晚高峰首轮测试
+2026-09-11T14:00:00+08:00,中国大陆,电信,日本,anytls,114,19,150,70,TRUE,TRUE,,,晚高峰首轮测试
