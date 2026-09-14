@@ -1,10 +1,47 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "历史机场推荐与测评档案",
-  description: "简单节点历史机场推荐栏目，按时间查看瞬云、寰宇云、筋斗云等机场的公开评级、线路类型、测速参考和测评详情。",
-  alternates: { canonical: "/recommendations" },
-  openGraph: { title: "历史机场推荐与测评档案 | 简单节点", description: "按时间查看简单节点的机场推荐和测评记录。", url: "/recommendations", type: "website" },
+  title: "历史机场推荐与测评档案 - 每周精选记录",
+  description: "简单节点历史机场推荐栏目，按时间查看瞬云、寰宇云、筋斗云等机场的公开评级、线路类型、测速参考和测评详情。每条记录都公开数据来源和判断条件。",
+  keywords: ["机场推荐", "机场测评", "历史推荐", "机场档案", "VPN推荐", "瞬云", "寰宇云", "筋斗云", "云图"],
+  alternates: {
+    canonical: "/recommendations",
+    languages: {
+      "zh-CN": "/recommendations",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "历史机场推荐与测评档案 - 每周精选记录 | 简单节点",
+    description: "按时间查看简单节点的机场推荐和测评记录，包含评分、线路类型、测速数据与详细评测。",
+    url: "/recommendations",
+    type: "website",
+    siteName: "简单节点",
+    locale: "zh_CN",
+    images: [
+      {
+        url: "/og-recommendations.png",
+        width: 1200,
+        height: 630,
+        alt: "机场推荐档案 - 简单节点",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "历史机场推荐与测评档案 - 每周精选记录",
+    description: "按时间查看简单节点的机场推荐记录，每条推荐都公开数据来源。",
+    images: ["/og-recommendations.png"],
+  },
 };
 
 const recommendations = [

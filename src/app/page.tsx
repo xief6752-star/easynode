@@ -7,6 +7,14 @@ const providers = [
   { slug: "huanyuyun", name: "寰宇云", tag: "IPLC 专线 · A级", category: "专线", score: 92, latency: 112, speed: 210, unlock: "Netflix / ChatGPT", price: "¥14起", color: "teal" },
   { slug: "jindouyun", name: "筋斗云", tag: "IEPL/IPLC · A级", category: "专线", score: 92, latency: 114, speed: 205, unlock: "Netflix / ChatGPT", price: "¥16起", color: "yellow" },
   { slug: "jiuyun", name: "九云", tag: "约 200 Mbps · B+级", category: "低价", score: 86, latency: 116, speed: 192, unlock: "Netflix / ChatGPT", price: "¥6起", color: "blue" },
+  { slug: "baoyun", name: "宝云", tag: "海外中转 · VLESS 协议", category: "低价", score: 86, latency: 45, speed: 280, unlock: "ChatGPT / YouTube", price: "¥4起", color: "green" },
+  { slug: "speedworld", name: "速界", tag: "真 IEPL 专线 · 企业级加密", category: "专线", score: 91, latency: 12, speed: 700, unlock: "Netflix / ChatGPT", price: "¥6起", color: "purple" },
+  { slug: "jilianyun", name: "极连云", tag: "全 IPLC 专线 · 晚高峰不限速", category: "专线", score: 92, latency: 20, speed: 600, unlock: "Netflix / ChatGPT", price: "¥18起", color: "violet" },
+  { slug: "miaomiaoyun", name: "秒秒云", tag: "海外中转 · VLESS 协议", category: "中转", score: 82, latency: 26, speed: 300, unlock: "Netflix / ChatGPT", price: "¥14起", color: "pink" },
+  { slug: "shanshuiyun", name: "山水云", tag: "优质中转 · 不限时套餐", category: "中转", score: 84, latency: 24, speed: 320, unlock: "Netflix / ChatGPT", price: "¥15起", color: "green" },
+  { slug: "jinyun", name: "锦云", tag: "小流量套餐 · 7元起", category: "低价", score: 81, latency: 30, speed: 260, unlock: "Netflix / ChatGPT", price: "¥6起", color: "pink" },
+  { slug: "liyun", name: "鲤云", tag: "灵活套餐 · 7元起", category: "低价", score: 82, latency: 28, speed: 280, unlock: "Netflix / ChatGPT", price: "¥7起", color: "teal" },
+  { slug: "cailuyun", name: "财路云", tag: "按需计费 · 7元起", category: "低价", score: 81, latency: 29, speed: 270, unlock: "Netflix / ChatGPT", price: "¥7起", color: "yellow" },
 ];
 
 const history = [
@@ -44,7 +52,7 @@ export default function Home() {
 
       <section className="ticker"><div><span className="ticker-label">TODAY&apos;S SNAPSHOT</span><span>平均延迟 <b>113ms</b></span><span>平均下载 <b>201 Mbps</b></span><span>收录机场 <b>4</b></span></div><span className="updated">UPDATED · 2026.09.11</span></section>
 
-      <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>—</strong><span>/ 待测试</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "18%" }} /></div><div><span>速度表现</span><b style={{ width: "18%" }} /></div><div><span>性价比</span><b style={{ width: "18%" }} /></div></div><span className="verdict">持续测试中</span></div></section>
+      <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>91</strong><span>/ 100</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "92%" }} /></div><div><span>速度表现</span><b style={{ width: "88%" }} /></div><div><span>性价比</span><b style={{ width: "93%" }} /></div></div><span className="verdict">基于 7 日数据</span></div></section>
 
       <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={item.href} key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
 

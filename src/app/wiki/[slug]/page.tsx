@@ -12,6 +12,54 @@ const wiki = {
 } as const;
 
 export function generateStaticParams() { return Object.keys(wiki).map((slug) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = wiki[slug as keyof typeof wiki]; if (!item) return {}; return { title: item.title, description: `${item.intro}${item.sections.map((section) => section.p).join("")}`, alternates: { canonical: `/wiki/${slug}` } }; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const item = wiki[slug as keyof typeof wiki];
+  if (!item) return {};
+
+  return {
+    title: `${item.title} - 机场百科`,
+    description: `${item.intro} ${item.sections.map((section) => section.p).join(" ").slice(0, 150)}...`,
+    keywords: [item.category, "机场百科", "VPN知识", item.title.split("？")[0], "机场选购", "测速方法"],
+    alternates: {
+      canonical: `/wiki/${slug}`,
+      languages: {
+        "zh-CN": `/wiki/${slug}`,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    openGraph: {
+      title: `${item.title} - 机场百科 | 简单节点`,
+      description: item.intro,
+      url: `/wiki/${slug}`,
+      type: "article",
+      siteName: "简单节点",
+      locale: "zh_CN",
+      images: [
+        {
+          url: `/og-wiki-${slug}.png`,
+          width: 1200,
+          height: 630,
+          alt: `${item.title} - 简单节点`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${item.title} - 机场百科`,
+      description: item.intro,
+      images: [`/og-wiki-${slug}.png`],
+    },
+  };
+}
 
 export default async function WikiDetailPage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const item = wiki[slug as keyof typeof wiki]; if (!item) notFound(); return <main className="article-detail-shell"><nav className="topbar article-topbar"><a className="brand" href="/"><span className="brand-mark">/</span> 简单节点</a><a className="back-link" href="/wiki">返回机场百科 <span>↗</span></a></nav><article className="article-detail wiki-detail"><p className="eyebrow">{item.category} / 简单节点百科</p><h1>{item.title}</h1><p className="article-intro">{item.intro}</p>{item.sections.map((section) => <section key={section.h}><h2>{section.h}</h2><p>{section.p}</p></section>)}<div className="article-source"><strong>内容声明</strong><p>本文用于解释机场 VPN 相关概念，不构成对任何服务商的稳定性承诺。具体体验请结合公开测试条件和实际使用环境判断。</p></div></article><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自公开资料与独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer></main>; }

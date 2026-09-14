@@ -1,0 +1,41 @@
+# robots.txt for 简单节点 (jiandanjiedian.com)
+# 机场推荐、机场测评与机场测速平台
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Special bots
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: 360Spider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Sogou web spider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://jiandanjiedian.com/sitemap.xml
+
+# Crawl-delay for bots that respect it
+Crawl-delay: 1

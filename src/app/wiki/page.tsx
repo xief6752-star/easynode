@@ -1,10 +1,47 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "机场 VPN 百科知识与选购指南",
-  description: "简单节点机场百科，解释机场 VPN、IEPL/IPLC 专线、中转线路、延迟、抖动、晚高峰测速、流媒体解锁和套餐选择等常见问题。",
-  alternates: { canonical: "/wiki" },
-  openGraph: { title: "机场 VPN 百科知识与选购指南 | 简单节点", description: "读懂机场 VPN 测速指标、线路类型和套餐选择。", url: "/wiki", type: "website" },
+  title: "机场 VPN 百科知识与选购指南 - 线路、测速、套餐全解析",
+  description: "简单节点机场百科，解释机场 VPN、IEPL/IPLC 专线、中转线路、延迟、抖动、晚高峰测速、流媒体解锁和套餐选择等常见问题。从基础概念到测试方法，帮助你读懂机场测评数据。",
+  keywords: ["机场百科", "VPN知识", "IEPL专线", "IPLC专线", "延迟", "抖动", "晚高峰测速", "流媒体解锁", "机场套餐", "中转线路", "测速方法"],
+  alternates: {
+    canonical: "/wiki",
+    languages: {
+      "zh-CN": "/wiki",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "机场 VPN 百科知识与选购指南 - 线路、测速、套餐全解析 | 简单节点",
+    description: "读懂机场 VPN 测速指标、线路类型和套餐选择。从 IEPL/IPLC 专线到延迟抖动，全面解析机场选购要点。",
+    url: "/wiki",
+    type: "website",
+    siteName: "简单节点",
+    locale: "zh_CN",
+    images: [
+      {
+        url: "/og-wiki.png",
+        width: 1200,
+        height: 630,
+        alt: "机场VPN百科 - 简单节点",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "机场 VPN 百科知识与选购指南",
+    description: "从线路类型到测速指标，帮你读懂机场 VPN 的核心概念。",
+    images: ["/og-wiki.png"],
+  },
 };
 
 const entries = [

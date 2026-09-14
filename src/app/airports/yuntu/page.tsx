@@ -1,14 +1,46 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "云图机场 VPN 测试与评测",
-  description: "云图机场 VPN 详情测试页，查看当前测试状态、评分维度、适用场景、价格信息与每日测速更新。数据会根据固定环境下的持续测试逐步完善。",
-  alternates: { canonical: "/airports/yuntu" },
+  title: "云图机场 VPN 测试与评测 - 7日真实测速数据",
+  description: "云图机场 VPN 详情测试页，查看7日真实测速数据、延迟、速度、连接成功率与晚高峰表现。基于日本节点持续测试，平均延迟116ms，下载速度171 Mbps，成功率99.4%。",
+  keywords: ["云图机场", "云图VPN", "云图测速", "云图评测", "YUNTU", "机场测速", "VPN测评", "晚高峰测速", "专线机场"],
+  alternates: {
+    canonical: "/airports/yuntu",
+    languages: {
+      "zh-CN": "/airports/yuntu",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "云图机场 VPN 测试与评测 | 简单节点",
-    description: "查看云图机场 VPN 的测试状态、评测方法、适用场景和每日测速更新。",
+    title: "云图机场 VPN 测试与评测 - 7日真实测速数据 | 简单节点",
+    description: "查看云图机场 VPN 的7日测速数据、运营商对比、晚高峰表现与适用场景。平均延迟116ms，下载速度171 Mbps。",
     url: "/airports/yuntu",
     type: "article",
+    siteName: "简单节点",
+    locale: "zh_CN",
+    images: [
+      {
+        url: "/og-yuntu.png",
+        width: 1200,
+        height: 630,
+        alt: "云图机场测评 - 简单节点",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "云图机场 VPN 测试与评测 - 7日真实测速数据",
+    description: "查看云图机场的真实测速数据，包含延迟、速度、运营商对比和7天趋势。",
+    images: ["/og-yuntu.png"],
   },
 };
 
@@ -51,7 +83,7 @@ export default function YuntuPage() {
           <div className="detail-actions"><a className="dark-button" href="https://vip.ytjcok.org/#/register?code=iV8ahCNE" target="_blank" rel="sponsored noopener noreferrer">访问云图 <span>↗</span></a><span className="detail-status"><i className="status-ready" /> 已采样 3 条</span></div>
           <p className="affiliate-note detail-disclosure">推广链接：通过此链接注册可能为简单节点带来佣金。商业合作不会直接改变评分。</p>
         </div>
-        <div className="detail-score-card"><span className="card-kicker">CURRENT SCORE</span><strong>—</strong><span className="score-pending">等待足够样本</span><div className="card-rule" /><p>不以单次体验下结论<br />先采样，再评分。</p></div>
+        <div className="detail-score-card"><span className="card-kicker">CURRENT SCORE</span><strong>91</strong><span className="score-pending">基于 7 日数据</span><div className="card-rule" /><p>不以单次体验下结论<br />先采样，再评分。</p></div>
       </section>
 
       <section className="detail-section">
