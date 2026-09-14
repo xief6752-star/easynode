@@ -10,11 +10,11 @@ const providers = [
   { slug: "baoyun", name: "宝云", tag: "海外中转 · VLESS 协议", category: "低价", score: 86, latency: 45, speed: 280, unlock: "ChatGPT / YouTube", price: "¥4起", color: "green" },
   { slug: "speedworld", name: "速界", tag: "真 IEPL 专线 · 企业级加密", category: "专线", score: 91, latency: 12, speed: 700, unlock: "Netflix / ChatGPT", price: "¥6起", color: "purple" },
   { slug: "jilianyun", name: "极连云", tag: "全 IPLC 专线 · 晚高峰不限速", category: "专线", score: 92, latency: 20, speed: 600, unlock: "Netflix / ChatGPT", price: "¥18起", color: "violet" },
-  { slug: "miaomiaoyun", name: "秒秒云", tag: "海外中转 · VLESS 协议", category: "中转", score: 82, latency: 26, speed: 300, unlock: "Netflix / ChatGPT", price: "¥14起", color: "pink" },
-  { slug: "shanshuiyun", name: "山水云", tag: "优质中转 · 不限时套餐", category: "中转", score: 84, latency: 24, speed: 320, unlock: "Netflix / ChatGPT", price: "¥15起", color: "green" },
-  { slug: "jinyun", name: "锦云", tag: "小流量套餐 · 7元起", category: "低价", score: 81, latency: 30, speed: 260, unlock: "Netflix / ChatGPT", price: "¥6起", color: "pink" },
-  { slug: "liyun", name: "鲤云", tag: "灵活套餐 · 7元起", category: "低价", score: 82, latency: 28, speed: 280, unlock: "Netflix / ChatGPT", price: "¥7起", color: "teal" },
-  { slug: "cailuyun", name: "财路云", tag: "按需计费 · 7元起", category: "低价", score: 81, latency: 29, speed: 270, unlock: "Netflix / ChatGPT", price: "¥7起", color: "yellow" },
+  { slug: "miaomiaoyun", name: "秒秒云", tag: "海外中转 · VLESS 协议", category: "中转", score: 82, latency: 26, speed: 300, unlock: "Netflix / ChatGPT", price: "¥14起", color: "pink", link: "https://m2.mouhiojl.com:8888/#/register?code=6u2dHtD4" },
+  { slug: "shanshuiyun", name: "山水云", tag: "优质中转 · 不限时套餐", category: "中转", score: 84, latency: 24, speed: 320, unlock: "Netflix / ChatGPT", price: "¥15起", color: "green", link: "https://sldm1.ssyylf.com/#/register?code=4WTXbMwy" },
+  { slug: "jinyun", name: "锦云", tag: "小流量套餐 · 7元起", category: "低价", score: 81, latency: 30, speed: 260, unlock: "Netflix / ChatGPT", price: "¥6起", color: "pink", link: "https://jybdw1.wanhlj.com:8888/#/register?code=0xeLRRWB" },
+  { slug: "liyun", name: "鲤云", tag: "灵活套餐 · 7元起", category: "低价", score: 82, latency: 28, speed: 280, unlock: "Netflix / ChatGPT", price: "¥7起", color: "teal", link: "https://ly888.liydl.com:8888/#/register?code=ihbhLNee" },
+  { slug: "xiongmaocloud", name: "熊猫cloud", tag: "按需计费 · 7元起", category: "低价", score: 81, latency: 29, speed: 270, unlock: "Netflix / ChatGPT", price: "¥7起", color: "yellow", link: "https://cl888.cailudl.com:9999/#/register?code=d4UTPba8" },
 ];
 
 const history = [
@@ -58,7 +58,7 @@ export default function Home() {
 
       <section className="content-section" id="ranking">
         <div className="section-heading"><div><p className="eyebrow">DAILY SIGNAL</p><h2>今日线路表现</h2></div><div className="tabs">{["全部", "专线", "中转", "低价"].map((tab) => <button className={activeTab === tab ? "tab active" : "tab"} key={tab} onClick={() => setActiveTab(tab)}>{tab}</button>)}</div></div>
-        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div><a className="provider-detail-link" href={`/airports/${provider.slug}`}>{provider.name}</a><small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
+        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div>{provider.link ? <a className="provider-detail-link" href={provider.link} target="_blank" rel="sponsored noopener noreferrer">{provider.name}</a> : <a className="provider-detail-link" href={`/airports/${provider.slug}`}>{provider.name}</a>}<small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
       </section>
 
       <section className="method-section" id="methodology">
