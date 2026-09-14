@@ -18,9 +18,9 @@ const providers = [
 ];
 
 const history = [
-  { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, href: "https://ccc.jichang.best/#/register?code=MhKYAnsG" },
-  { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, href: "https://hyy.52kok.cn/#/register?code=CPBmzXgk" },
-  { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, href: "https://jdy.52kok.cn/#/register?code=wUKiwosG" },
+  { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, slug: "shunyun" },
+  { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, slug: "huanyuyun" },
+  { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, slug: "jindouyun" },
 ];
 
 export default function Home() {
@@ -54,11 +54,11 @@ export default function Home() {
 
       <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>91</strong><span>/ 100</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "92%" }} /></div><div><span>速度表现</span><b style={{ width: "88%" }} /></div><div><span>性价比</span><b style={{ width: "93%" }} /></div></div><span className="verdict">基于 7 日数据</span></div></section>
 
-      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={item.href} target="_blank" rel="sponsored noopener noreferrer" key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
+      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={`/airports/${item.slug}`} key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
 
       <section className="content-section" id="ranking">
         <div className="section-heading"><div><p className="eyebrow">DAILY SIGNAL</p><h2>今日线路表现</h2></div><div className="tabs">{["全部", "专线", "中转", "低价"].map((tab) => <button className={activeTab === tab ? "tab active" : "tab"} key={tab} onClick={() => setActiveTab(tab)}>{tab}</button>)}</div></div>
-        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div><a className="provider-detail-link" href={provider.link || `/airports/${provider.slug}`} target={provider.link ? "_blank" : undefined} rel={provider.link ? "sponsored noopener noreferrer" : undefined}>{provider.name}</a><small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
+        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div><a className="provider-detail-link" href={`/airports/${provider.slug}`}>{provider.name}</a><small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
       </section>
 
       <section className="method-section" id="methodology">
