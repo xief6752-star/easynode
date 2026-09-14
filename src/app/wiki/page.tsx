@@ -52,6 +52,10 @@ const entries = [
   { slug: "peak-hour-testing", category: "测试方法", title: "为什么要看晚高峰测速？白天速度快有用吗？", excerpt: "晚高峰是观察线路拥堵的关键时间，了解速度下降比例、延迟变化和断线记录的意义。", date: "2026.09.13" },
   { slug: "streaming-unlock-testing", category: "使用场景", title: "机场的流媒体解锁测试应该怎么看？", excerpt: "Netflix、Disney+、YouTube 和 AI 服务的解锁结果如何记录，解锁成功为什么不等于线路稳定。", date: "2026.09.13" },
   { slug: "monthly-vs-yearly-plan", category: "套餐选择", title: "机场套餐选月付还是年付？如何降低跑路风险？", excerpt: "比较月付、季付和年付的价格与风险，整理购买前应检查的退款、流量和运营信息。", date: "2026.09.14" },
+  { slug: "traffic-multiplier-rules", category: "套餐选择", title: "机场的流量倍率规则是什么？如何避免超量？", excerpt: "理解不同节点的流量倍率计算方式，避免因不了解规则而意外耗尽套餐流量。", date: "2026.09.14" },
+  { slug: "client-selection-guide", category: "基础概念", title: "Clash、Shadowrocket、sing-box 客户端怎么选？", excerpt: "对比主流客户端的平台支持、协议兼容性和配置方式，找到适合自己的工具。", date: "2026.09.14" },
+  { slug: "bgp-vs-cn2-gia", category: "线路类型", title: "BGP、CN2 GIA 和 AS4809 是什么？影响速度吗？", excerpt: "解释常见的网络线路标识，了解它们与实际速度、稳定性的关系。", date: "2026.09.14" },
+  { slug: "airport-security-risks", category: "风险提示", title: "使用机场 VPN 有哪些安全风险？如何降低？", excerpt: "从流量可见性、日志记录到跑路风险，整理使用代理服务时应注意的安全要点。", date: "2026.09.14" },
 ];
 
 export default function WikiPage() {
