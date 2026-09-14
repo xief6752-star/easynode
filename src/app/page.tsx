@@ -3,13 +3,13 @@
 import { useState } from "react";
 
 const providers = [
-  { slug: "shunyun", name: "瞬云", tag: "约 200 Mbps · B+级", category: "中转", score: 86, latency: 110, speed: 198, unlock: "Netflix / ChatGPT", price: "¥16起", color: "coral" },
-  { slug: "huanyuyun", name: "寰宇云", tag: "IPLC 专线 · A级", category: "专线", score: 92, latency: 112, speed: 210, unlock: "Netflix / ChatGPT", price: "¥14起", color: "teal" },
-  { slug: "jindouyun", name: "筋斗云", tag: "IEPL/IPLC · A级", category: "专线", score: 92, latency: 114, speed: 205, unlock: "Netflix / ChatGPT", price: "¥16起", color: "yellow" },
-  { slug: "jiuyun", name: "九云", tag: "约 200 Mbps · B+级", category: "低价", score: 86, latency: 116, speed: 192, unlock: "Netflix / ChatGPT", price: "¥6起", color: "blue" },
-  { slug: "baoyun", name: "宝云", tag: "海外中转 · VLESS 协议", category: "低价", score: 86, latency: 45, speed: 280, unlock: "ChatGPT / YouTube", price: "¥4起", color: "green" },
-  { slug: "speedworld", name: "速界", tag: "真 IEPL 专线 · 企业级加密", category: "专线", score: 91, latency: 12, speed: 700, unlock: "Netflix / ChatGPT", price: "¥6起", color: "purple" },
-  { slug: "jilianyun", name: "极连云", tag: "全 IPLC 专线 · 晚高峰不限速", category: "专线", score: 92, latency: 20, speed: 600, unlock: "Netflix / ChatGPT", price: "¥18起", color: "violet" },
+  { slug: "shunyun", name: "瞬云", tag: "约 200 Mbps · B+级", category: "中转", score: 86, latency: 110, speed: 198, unlock: "Netflix / ChatGPT", price: "¥16起", color: "coral", link: "https://ccc.jichang.best/#/register?code=MhKYAnsG" },
+  { slug: "huanyuyun", name: "寰宇云", tag: "IPLC 专线 · A级", category: "专线", score: 92, latency: 112, speed: 210, unlock: "Netflix / ChatGPT", price: "¥14起", color: "teal", link: "https://hyy.52kok.cn/#/register?code=CPBmzXgk" },
+  { slug: "jindouyun", name: "筋斗云", tag: "IEPL/IPLC · A级", category: "专线", score: 92, latency: 114, speed: 205, unlock: "Netflix / ChatGPT", price: "¥16起", color: "yellow", link: "https://jdy.52kok.cn/#/register?code=wUKiwosG" },
+  { slug: "jiuyun", name: "九云", tag: "约 200 Mbps · B+级", category: "低价", score: 86, latency: 116, speed: 192, unlock: "Netflix / ChatGPT", price: "¥6起", color: "blue", link: "https://888.jiuyundl.com/#/register?code=SDsIO7kq" },
+  { slug: "baoyun", name: "宝云", tag: "海外中转 · VLESS 协议", category: "低价", score: 86, latency: 45, speed: 280, unlock: "ChatGPT / YouTube", price: "¥4起", color: "green", link: "https://888by.baoyundl.com/#/register?code=089ta958" },
+  { slug: "speedworld", name: "速界", tag: "真 IEPL 专线 · 企业级加密", category: "专线", score: 91, latency: 12, speed: 700, unlock: "Netflix / ChatGPT", price: "¥6起", color: "purple", link: "https://momlise.szjtfp.xyz/#/?code=GPjugEyt" },
+  { slug: "jilianyun", name: "极连云", tag: "全 IPLC 专线 · 晚高峰不限速", category: "专线", score: 92, latency: 20, speed: 600, unlock: "Netflix / ChatGPT", price: "¥18起", color: "violet", link: "https://haozevpn.jlyvipaff.com/#/?code=KUKfOY13" },
   { slug: "miaomiaoyun", name: "秒秒云", tag: "海外中转 · VLESS 协议", category: "中转", score: 82, latency: 26, speed: 300, unlock: "Netflix / ChatGPT", price: "¥14起", color: "pink", link: "https://m2.mouhiojl.com:8888/#/register?code=6u2dHtD4" },
   { slug: "shanshuiyun", name: "山水云", tag: "优质中转 · 不限时套餐", category: "中转", score: 84, latency: 24, speed: 320, unlock: "Netflix / ChatGPT", price: "¥15起", color: "green", link: "https://sldm1.ssyylf.com/#/register?code=4WTXbMwy" },
   { slug: "jinyun", name: "锦云", tag: "小流量套餐 · 7元起", category: "低价", score: 81, latency: 30, speed: 260, unlock: "Netflix / ChatGPT", price: "¥6起", color: "pink", link: "https://jybdw1.wanhlj.com:8888/#/register?code=0xeLRRWB" },
@@ -18,9 +18,9 @@ const providers = [
 ];
 
 const history = [
-  { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, href: "/airports/shunyun" },
-  { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, href: "/airports/huanyuyun" },
-  { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, href: "/airports/jindouyun" },
+  { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, href: "https://ccc.jichang.best/#/register?code=MhKYAnsG" },
+  { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, href: "https://hyy.52kok.cn/#/register?code=CPBmzXgk" },
+  { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, href: "https://jdy.52kok.cn/#/register?code=wUKiwosG" },
 ];
 
 export default function Home() {
@@ -54,11 +54,11 @@ export default function Home() {
 
       <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">WEEKLY FEATURE / 09.11.2026</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><a className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></a></div><div className="score-panel"><div className="score-ring"><strong>91</strong><span>/ 100</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "92%" }} /></div><div><span>速度表现</span><b style={{ width: "88%" }} /></div><div><span>性价比</span><b style={{ width: "93%" }} /></div></div><span className="verdict">基于 7 日数据</span></div></section>
 
-      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={item.href} key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
+      <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><a className="text-link" href="/recommendations">查看全部 ↗</a></div><div className="archive-list">{history.map((item) => <a className="archive-item" href={item.href} target="_blank" rel="sponsored noopener noreferrer" key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></a>)}</div></section>
 
       <section className="content-section" id="ranking">
         <div className="section-heading"><div><p className="eyebrow">DAILY SIGNAL</p><h2>今日线路表现</h2></div><div className="tabs">{["全部", "专线", "中转", "低价"].map((tab) => <button className={activeTab === tab ? "tab active" : "tab"} key={tab} onClick={() => setActiveTab(tab)}>{tab}</button>)}</div></div>
-        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div><a className="provider-detail-link" href={`/airports/${provider.slug}`}>{provider.name}</a><small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
+        <div className="table-wrap"><div className="table-header"><span>排名 / 服务</span><span>延迟</span><span>晚高峰速度</span><span>解锁</span><span>评级</span></div>{filtered.map((provider, index) => <div className="provider-row" key={provider.name}><div className="provider-name"><span className={`rank rank-${index + 1}`}>{String(index + 1).padStart(2, "0")}</span><span className={`provider-logo ${provider.color}`}>{provider.name.slice(0, 1)}</span><div><a className="provider-detail-link" href={provider.link || `/airports/${provider.slug}`} target={provider.link ? "_blank" : undefined} rel={provider.link ? "sponsored noopener noreferrer" : undefined}>{provider.name}</a><small>{provider.tag} · {provider.price}/月</small></div></div><span className="metric">{provider.latency}<small> ms</small></span><span className="metric">{provider.speed}<small> Mbps</small></span><span className="metric unlock-metric">✓<small>{provider.unlock}</small></span><span className="score">{provider.score}</span></div>)}</div>
       </section>
 
       <section className="method-section" id="methodology">
