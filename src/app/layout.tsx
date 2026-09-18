@@ -128,14 +128,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="zh-CN">
       <head>
-        <link rel="canonical" href={siteUrl} />
         <meta name="geo.region" content="CN" />
         <meta name="geo.placename" content="China" />
         <meta name="geo.position" content="35.0;105.0" />
         <meta name="ICBM" content="35.0, 105.0" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="alternate" hrefLang="zh-CN" href={siteUrl} />
-        <link rel="alternate" hrefLang="x-default" href={siteUrl} />
       </head>
       <body>
         {children}

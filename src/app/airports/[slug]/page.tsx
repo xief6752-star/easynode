@@ -14,6 +14,7 @@ const airports = {
   jinyun: { name: "锦云", english: "JINYUN", price: "¥6 起/月", route: "海外中转", rating: "B", score: 81, latency: 30, speed: "260+", color: "pink", summary: "主打小流量与低价套餐的海外中转服务，本页按本地评测资料展示晚高峰约 260 Mbps 下载速度。", goodFor: "轻度使用、预算有限或需要备用机场的用户", watch: "低价小流量套餐要重点确认额度、重置周期和超额规则。", link: "https://jybdw1.wanhlj.com:8888/#/register?code=0xeLRRWB" },
   liyun: { name: "鲤云", english: "LIYUN", price: "¥7 起/月", route: "海外中转", rating: "B", score: 82, latency: 28, speed: "280+", color: "teal", summary: "提供小流量灵活套餐的海外中转服务，本页按本地评测资料展示晚高峰约 280 Mbps 下载速度。", goodFor: "轻量浏览、备用线路和想控制月度开支的用户", watch: "小流量套餐适合按需使用，长期订阅前请确认套餐有效期和流量规则。", link: "https://ly888.liydl.com:8888/#/register?code=ihbhLNee" },
   xiongmaocloud: { name: "熊猫cloud", english: "XIONGMAOCLOUD", price: "¥7 起/月", route: "按需计费中转", rating: "B", score: 81, latency: 29, speed: "270+", color: "yellow", summary: "主打按需计费与小流量套餐，本页按本地评测资料展示晚高峰约 270 Mbps 下载速度。", goodFor: "轻度用户、临时备用和希望按实际用量付费的用户", watch: "按需计费方案需要关注流量价格、有效期和长期运营情况。", link: "https://cl888.cailudl.com:9999/#/register?code=d4UTPba8" },
+  yuntu: { name: "云图", english: "YUNTU", price: "¥12 起/月", route: "中转 + 专线", rating: "A-", score: 91, latency: 105, speed: "220+", color: "blue", summary: "中转与专线结合的均衡方案，本页按当前阶段测试样本展示约 220 Mbps 下载速度。", goodFor: "希望快速开始体验机场线路，重视性价比的用户", watch: "本周推荐服务，正式评分将根据每日测速和长期稳定性数据持续更新。", link: "https://vip.ytjcok.org/#/register?code=iV8ahCNE" },
 } as const;
 
 type Airport = (typeof airports)[keyof typeof airports];
