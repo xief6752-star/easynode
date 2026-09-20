@@ -5,7 +5,6 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /private/
 
 # Special bots
@@ -36,6 +35,3 @@ Disallow: /admin/
 
 # Sitemap
 Sitemap: https://jiandanjiedian.com/sitemap.xml
-
-# Crawl-delay for bots that respect it
-Crawl-delay: 1

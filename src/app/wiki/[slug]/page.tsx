@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "../../components/json-ld";
+import { DATA_UPDATED_AT, SITE_URL } from "../../site-data";
 
 const wiki = {
   "what-is-airport-vpn": { category: "基础概念", title: "机场 VPN 是什么？机场、节点和订阅有什么区别？", intro: "机场通常指提供代理节点订阅服务的平台，用户通过客户端导入订阅后，可以选择不同地区的线路进行连接。", date: "2026.09.12", sections: [{ h: "机场是什么？", p: "机场是对代理节点订阅服务的俗称。它通常提供多个地区的节点、流量套餐、订阅地址和使用说明，用户再通过 Clash、Shadowrocket、sing-box 等客户端连接。" }, { h: "节点和线路有什么区别？", p: "节点是客户端里可以选择的具体入口，线路则描述数据经过的网络路径。同一机场可能同时提供普通中转、专线和不同地区的节点。" }, { h: "订阅链接是什么？", p: "订阅链接通常包含节点配置，客户端可以通过它获取或更新节点列表。订阅链接属于敏感信息，不应公开分享，也不应放入公开测速数据。" }] },
@@ -50,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "zh_CN",
       images: [
         {
-          url: `/og-wiki-${slug}.png`,
+          url: "/og-image.svg",
           width: 1200,
           height: 630,
           alt: `${item.title} - 简单节点`,
@@ -61,9 +64,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${item.title} - 机场百科`,
       description: item.intro,
-      images: [`/og-wiki-${slug}.png`],
+      images: ["/og-image.svg"],
     },
   };
 }
 
-export default async function WikiDetailPage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const item = wiki[slug as keyof typeof wiki]; if (!item) notFound(); return <main className="article-detail-shell"><nav className="topbar article-topbar"><a className="brand" href="/"><span className="brand-mark">/</span> 简单节点</a><a className="back-link" href="/wiki">返回机场百科 <span>↗</span></a></nav><article className="article-detail wiki-detail"><p className="eyebrow">{item.category} / {item.date}</p><h1>{item.title}</h1><p className="article-intro">{item.intro}</p>{item.sections.map((section) => <section key={section.h}><h2>{section.h}</h2><p>{section.p}</p></section>)}<div className="article-source"><strong>内容声明</strong><p>本文用于解释机场 VPN 相关概念，不构成对任何服务商的稳定性承诺。具体体验请结合公开测试条件和实际使用环境判断。</p></div></article><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自公开资料与独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer></main>; }
+export default async function WikiDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = wiki[slug as keyof typeof wiki];
+  if (!item) notFound();
+
+  const pageUrl = `${SITE_URL}/wiki/${slug}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl}#article`,
+    url: pageUrl,
+    headline: item.title,
+    description: item.intro,
+    articleSection: item.category,
+    datePublished: item.date.replaceAll(".", "-"),
+    dateModified: DATA_UPDATED_AT,
+    inLanguage: "zh-CN",
+    author: { "@type": "Organization", name: "简单节点", url: SITE_URL },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+  };
+
+  return <main className="article-detail-shell"><nav className="topbar article-topbar"><Link className="brand" href="/"><span className="brand-mark">/</span> 简单节点</Link><Link className="back-link" href="/wiki">返回机场百科 <span>↗</span></Link></nav><article className="article-detail wiki-detail"><p className="eyebrow">{item.category} / {item.date}</p><h1>{item.title}</h1><p className="article-intro">{item.intro}</p>{item.sections.map((section) => <section key={section.h}><h2>{section.h}</h2><p>{section.p}</p></section>)}<div className="article-source"><strong>内容声明</strong><p>本文用于解释机场 VPN 相关概念，不构成对任何服务商的稳定性承诺。具体体验请结合公开测试条件和实际使用环境判断。</p></div></article><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自公开资料与独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer><JsonLd data={structuredData} /></main>;
+}

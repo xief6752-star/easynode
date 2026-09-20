@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "机场 VPN 百科知识与选购指南 - 线路、测速、套餐全解析",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     locale: "zh_CN",
     images: [
       {
-        url: "/og-wiki.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "机场VPN百科 - 简单节点",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "机场 VPN 百科知识与选购指南",
     description: "从线路类型到测速指标，帮你读懂机场 VPN 的核心概念。",
-    images: ["/og-wiki.png"],
+    images: ["/og-image.svg"],
   },
 };
 
@@ -59,5 +60,5 @@ const entries = [
 ];
 
 export default function WikiPage() {
-  return <main className="article-shell"><nav className="topbar article-topbar"><a className="brand" href="/"><span className="brand-mark">/</span> 简单节点</a><a className="back-link" href="/">返回首页 <span>↗</span></a></nav><header className="article-header wiki-header"><p className="eyebrow">THE FIELD GUIDE</p><h1>机场百科，<br /><em>先把概念弄懂。</em></h1><p>从线路、测速到套餐选择，整理机场 VPN 使用中最容易混淆的概念。每个词条都尽量给出定义、判断方法和适用场景。</p></header><section className="wiki-grid">{entries.map((entry, index) => <a className="wiki-card" href={`/wiki/${entry.slug}`} key={entry.slug}><span className="article-number">{String(index + 1).padStart(2, "0")}</span><span className="wiki-category">{entry.category}</span><h2>{entry.title}</h2><p>{entry.excerpt}</p><span className="wiki-date">{entry.date}</span><span className="wiki-read">阅读词条 ↗</span></a>)}</section><section className="article-note"><p className="eyebrow">READ WITH TEST DATA</p><h2>概念是起点，<br />实测才是结论。</h2><p>百科内容用于帮助理解测试指标，具体机场表现仍应结合地区、运营商、节点和测试时间判断。</p></section><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer></main>;
+  return <main className="article-shell"><nav className="topbar article-topbar"><Link className="brand" href="/"><span className="brand-mark">/</span> 简单节点</Link><Link className="back-link" href="/">返回首页 <span>↗</span></Link></nav><header className="article-header wiki-header"><p className="eyebrow">THE FIELD GUIDE</p><h1>机场百科，<br /><em>先把概念弄懂。</em></h1><p>从线路、测速到套餐选择，整理机场 VPN 使用中最容易混淆的概念。每个词条都尽量给出定义、判断方法和适用场景。</p></header><section className="wiki-grid">{entries.map((entry, index) => <Link className="wiki-card" href={`/wiki/${entry.slug}`} key={entry.slug}><span className="article-number">{String(index + 1).padStart(2, "0")}</span><span className="wiki-category">{entry.category}</span><h2>{entry.title}</h2><p>{entry.excerpt}</p><span className="wiki-date">{entry.date}</span><span className="wiki-read">阅读词条 ↗</span></Link>)}</section><section className="article-note"><p className="eyebrow">READ WITH TEST DATA</p><h2>概念是起点，<br />实测才是结论。</h2><p>百科内容用于帮助理解测试指标，具体机场表现仍应结合地区、运营商、节点和测试时间判断。</p></section><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer></main>;
 }

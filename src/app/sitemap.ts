@@ -1,71 +1,50 @@
 import type { MetadataRoute } from "next";
+import {
+  AIRPORT_SLUGS,
+  DATA_UPDATED_AT,
+  SITE_URL,
+  WIKI_SLUGS,
+} from "./site-data";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jiandanjiedian.com";
-  const now = new Date();
-  const lastWeek = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-
-  // 机场列表 - 用于生成动态sitemap条目
-  const airports = [
-    "yuntu", "shunyun", "huanyuyun", "jindouyun",
-    "jiuyun", "baoyun", "speedworld", "jilianyun",
-    "miaomiaoyun", "shanshuiyun", "jinyun", "liyun", "cailuyun"
-  ];
-
-  // Wiki文章列表
-  const wikiArticles = [
-    "what-is-airport-vpn", "iepl-iplc-dedicated-line", "latency-and-jitter",
-    "vpn-test-methodology", "peak-hour-testing", "streaming-unlock-testing",
-    "monthly-vs-yearly-plan"
-  ];
+  const updatedAt = new Date(`${DATA_UPDATED_AT}T00:00:00+08:00`);
 
   return [
-    // 首页 - 最高优先级，每日更新
     {
-      url: baseUrl,
-      lastModified: now,
+      url: SITE_URL,
+      lastModified: updatedAt,
       changeFrequency: "daily",
       priority: 1.0,
     },
-
-    // 核心推荐机场页面 - 高优先级
-    ...airports.slice(0, 4).map((slug) => ({
-      url: `${baseUrl}/airports/${slug}`,
-      lastModified: now,
+    ...AIRPORT_SLUGS.map((slug, index) => ({
+      url: `${SITE_URL}/airports/${slug}`,
+      lastModified: updatedAt,
       changeFrequency: "daily" as const,
-      priority: 0.95,
+      priority: index < 4 ? 0.95 : 0.85,
     })),
-
-    // 其他机场页面
-    ...airports.slice(4).map((slug) => ({
-      url: `${baseUrl}/airports/${slug}`,
-      lastModified: now,
-      changeFrequency: "daily" as const,
-      priority: 0.85,
-    })),
-
-    // 推荐归档页
     {
-      url: `${baseUrl}/recommendations`,
-      lastModified: lastWeek,
+      url: `${SITE_URL}/recommendations`,
+      lastModified: updatedAt,
       changeFrequency: "weekly",
       priority: 0.85,
     },
-
-    // Wiki 主页
     {
-      url: `${baseUrl}/wiki`,
-      lastModified: lastWeek,
+      url: `${SITE_URL}/articles`,
+      lastModified: updatedAt,
+      changeFrequency: "weekly",
+      priority: 0.75,
+    },
+    {
+      url: `${SITE_URL}/wiki`,
+      lastModified: updatedAt,
       changeFrequency: "weekly",
       priority: 0.80,
     },
-
-    // Wiki 文章页
-    ...wikiArticles.map((slug) => ({
-      url: `${baseUrl}/wiki/${slug}`,
-      lastModified: lastWeek,
+    ...WIKI_SLUGS.map((slug) => ({
+      url: `${SITE_URL}/wiki/${slug}`,
+      lastModified: updatedAt,
       changeFrequency: "monthly" as const,
       priority: 0.70,
     })),

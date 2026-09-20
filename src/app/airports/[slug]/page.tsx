@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "../../components/json-ld";
+import { DATA_UPDATED_AT, DATA_UPDATED_LABEL, SITE_URL } from "../../site-data";
 
 const airports = {
   shunyun: { name: "瞬云", english: "SHUNYUN", price: "¥16 起/月", route: "中转 + 专线", rating: "B+", score: 86, latency: 110, speed: "198", color: "coral", summary: "中转与专线结合的日常型机场，本页按当前阶段测试样本展示约 200 Mbps 下载速度。", goodFor: "日常浏览、高清视频和希望兼顾线路选择的用户", watch: "当前评分和指标属于阶段性展示结果，仍需持续导入更多独立样本。", link: "https://ccc.jichang.best/#/register?code=MhKYAnsG" },
@@ -56,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "zh_CN",
       images: [
         {
-          url: `/og-airport-${slug}.png`,
+          url: "/og-image.svg",
           width: 1200,
           height: 630,
           alt: `${airport.name}机场测评 - 简单节点`,
@@ -67,7 +70,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title: `${airport.name}机场 VPN 测试与评测`,
       description: `${airport.route}线路 | 延迟${airport.latency}ms | 速度${airport.speed} Mbps | ${airport.price}`,
-      images: [`/og-airport-${slug}.png`],
+      images: ["/og-image.svg"],
     },
   };
 }
@@ -81,11 +84,34 @@ export default async function AirportReviewPage({ params }: { params: Promise<{ 
   const airport = airports[slug as keyof typeof airports];
   if (!airport) notFound();
   const data = airport as Airport;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/airports/${slug}#webpage`,
+        url: `${SITE_URL}/airports/${slug}`,
+        name: `${data.name}机场 VPN 测试与评测`,
+        description: data.summary,
+        inLanguage: "zh-CN",
+        dateModified: DATA_UPDATED_AT,
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "首页", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "机场测评", item: `${SITE_URL}/#ranking` },
+          { "@type": "ListItem", position: 3, name: `${data.name}机场评测`, item: `${SITE_URL}/airports/${slug}` },
+        ],
+      },
+    ],
+  };
 
-  return <main className="detail-shell"><nav className="topbar detail-topbar"><a className="brand" href="/"><span className="brand-mark">/</span> 简单节点</a><a className="back-link" href="/">返回首页 <span>↗</span></a></nav>
-  <section className="detail-hero airport-review-hero"><div><p className="eyebrow">AIRPORT REVIEW / 2026.09.11</p><h1>{data.name}<br /><em>{data.english}</em></h1><p className="detail-lead">{data.summary}本页根据当前阶段的公开信息与测试样本整理，延迟约为 110ms 区间展示值，正式结论以持续测试数据为准。</p><div className="detail-actions">{data.link ? <a className="dark-button" href={data.link} target="_blank" rel="sponsored noopener noreferrer">访问机场 <span>↗</span></a> : <a className="dark-button" href="/articles/how-we-test-vpn">查看测试方法 <span>↗</span></a>}<span className="detail-status"><i /> 阶段数据已整理</span></div><p className="affiliate-note detail-disclosure">本站会持续补充测试记录，公开说明测试条件，评分与推广链接分开处理。</p></div><div className="detail-score-card"><span className="card-kicker">CURRENT RATING</span><strong>{data.rating}</strong><span className="score-pending">界面换算分 {data.score} / 100</span><div className="card-rule" /><p>当前阶段参考评级：{data.rating}<br />不是长期稳定性承诺。</p></div></section>
-  <section className="detail-section"><div className="detail-section-heading"><div><p className="eyebrow">TEST SNAPSHOT</p><h2>核心指标</h2></div><span className="last-update">CURRENT SAMPLE / 2026.09.11</span></div><div className="test-grid"><Metric label="参考延迟" value={`${data.latency} ms`} detail="约 110ms 区间展示值" /><Metric label="阶段速度" value={`${data.speed} Mbps`} detail="当前样本展示值" /><Metric label="线路类型" value={data.route} detail="页面资料整理" /><Metric label="起步价格" value={data.price} detail="以实际套餐页面为准" /></div></section>
+  return <main className="detail-shell"><nav className="topbar detail-topbar"><Link className="brand" href="/"><span className="brand-mark">/</span> 简单节点</Link><Link className="back-link" href="/">返回首页 <span>↗</span></Link></nav>
+  <section className="detail-hero airport-review-hero"><div><p className="eyebrow">AIRPORT REVIEW / {DATA_UPDATED_LABEL}</p><h1>{data.name}<br /><em>{data.english}</em></h1><p className="detail-lead">{data.summary}本页根据当前阶段的公开信息与测试样本整理，参考延迟为 {data.latency}ms，正式结论以持续测试数据为准。</p><div className="detail-actions">{data.link ? <a className="dark-button" href={data.link} target="_blank" rel="sponsored noopener noreferrer">访问机场 <span>↗</span></a> : <Link className="dark-button" href="/articles/how-we-test-vpn">查看测试方法 <span>↗</span></Link>}<span className="detail-status"><i /> 阶段数据已整理</span></div><p className="affiliate-note detail-disclosure">本站会持续补充测试记录，公开说明测试条件，评分与推广链接分开处理。</p></div><div className="detail-score-card"><span className="card-kicker">CURRENT RATING</span><strong>{data.rating}</strong><span className="score-pending">界面换算分 {data.score} / 100</span><div className="card-rule" /><p>当前阶段参考评级：{data.rating}<br />不是长期稳定性承诺。</p></div></section>
+  <section className="detail-section"><div className="detail-section-heading"><div><p className="eyebrow">TEST SNAPSHOT</p><h2>核心指标</h2></div><span className="last-update">CURRENT SAMPLE / {DATA_UPDATED_LABEL}</span></div><div className="test-grid"><Metric label="参考延迟" value={`${data.latency} ms`} detail="当前样本参考值" /><Metric label="阶段速度" value={`${data.speed} Mbps`} detail="当前样本展示值" /><Metric label="线路类型" value={data.route} detail="页面资料整理" /><Metric label="起步价格" value={data.price} detail="以实际套餐页面为准" /></div></section>
   <section className="detail-section review-facts"><div className="detail-section-heading"><div><p className="eyebrow">REVIEW NOTES</p><h2>怎么理解这份测评</h2></div></div><div className="suitability-grid"><article><span>适合人群</span><h3>{data.goodFor}</h3><p>先按自己的地区和运营商进行小额、短周期验证，再决定是否长期使用。</p></article><article><span>线路观察</span><h3>{data.route}</h3><p>线路名称来自公开资料，实际节点路径、协议和入口可能随套餐与时间变化。</p></article><article><span>需要注意</span><h3>不要只看峰值速度</h3><p>{data.watch}</p></article></div></section>
-  <section className="method-callout"><div><p className="eyebrow">NEXT STEP</p><h2>先看条件，<br />再做选择。</h2></div><p>简单节点会继续补充真实测试记录。你可以提交 CSV 数据，我们会更新延迟、运营商、晚高峰和 7 天趋势。</p><a className="outline-button light-button" href="/articles">查看测评文章 <span>↗</span></a></section>
-  <footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自公开资料与独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer></main>;
+  <section className="method-callout"><div><p className="eyebrow">NEXT STEP</p><h2>先看条件，<br />再做选择。</h2></div><p>简单节点会继续补充真实测试记录。你可以提交 CSV 数据，我们会更新延迟、运营商、晚高峰和 7 天趋势。</p><Link className="outline-button light-button" href="/articles">查看测评文章 <span>↗</span></Link></section>
+  <footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自公开资料与独立测试，仅供比较参考。</span><span>© 2026 简单节点</span></footer><JsonLd data={structuredData} /></main>;
 }

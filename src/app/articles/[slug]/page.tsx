@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const articleData = {
@@ -15,12 +16,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const article = articleData[slug as keyof typeof articleData];
   if (!article) return {};
-  return { title: article.title, description: `${article.intro}${article.sections.map((section) => section.body).join("")}`, alternates: { canonical: `/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}` } };
+  return {
+    title: article.title,
+    description: `${article.intro}${article.sections.map((section) => section.body).join("")}`,
+    alternates: { canonical: `/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}` },
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = articleData[slug as keyof typeof articleData];
   if (!article) notFound();
-  return <main className="article-detail-shell"><nav className="topbar article-topbar"><a className="brand" href="/"><span className="brand-mark">/</span> 简单节点</a><a className="back-link" href={`/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}`}>查看百科词条 <span>↗</span></a></nav><article className="article-detail"><p className="eyebrow">{article.category} / 已归档至机场百科</p><h1>{article.title}</h1><p className="article-intro">该测试文章内容已合并到机场百科，以下保留原文供历史链接访问。</p>{article.sections.map((section) => <section key={section.heading}><h2>{section.heading}</h2><p>{section.body}</p></section>)}<div className="article-source"><strong>查看新版词条</strong><p><a href={`/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}`}>前往机场百科查看完整、持续更新的内容 →</a></p></div></article><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自独立测试，仅供参考。</span><span>© 2026 简单节点</span></footer></main>;
+  return <main className="article-detail-shell"><nav className="topbar article-topbar"><Link className="brand" href="/"><span className="brand-mark">/</span> 简单节点</Link><Link className="back-link" href={`/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}`}>查看百科词条 <span>↗</span></Link></nav><article className="article-detail"><p className="eyebrow">{article.category} / 已归档至机场百科</p><h1>{article.title}</h1><p className="article-intro">该测试文章内容已合并到机场百科，以下保留原文供历史链接访问。</p>{article.sections.map((section) => <section key={section.heading}><h2>{section.heading}</h2><p>{section.body}</p></section>)}<div className="article-source"><strong>查看新版词条</strong><p><Link href={`/wiki/${wikiByArticle[slug as keyof typeof wikiByArticle]}`}>前往机场百科查看完整、持续更新的内容 →</Link></p></div></article><footer><span className="brand"><span className="brand-mark">/</span> 简单节点</span><span>数据来自独立测试，仅供参考。</span><span>© 2026 简单节点</span></footer></main>;
 }
