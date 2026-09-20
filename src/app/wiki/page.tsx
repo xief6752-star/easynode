@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "机场 VPN 百科知识与选购指南 - 线路、测速、套餐全解析",
-  description: "简单节点机场百科，解释机场 VPN、IEPL/IPLC 专线、中转线路、延迟、抖动、晚高峰测速、流媒体解锁和套餐选择等常见问题。从基础概念到测试方法，帮助你读懂机场测评数据。",
-  keywords: ["机场百科", "VPN知识", "IEPL专线", "IPLC专线", "延迟", "抖动", "晚高峰测速", "流媒体解锁", "机场套餐", "中转线路", "测速方法"],
+  description: "简单节点机场百科，解释机场 VPN、订阅链接、IEPL/IPLC 专线、中转线路、延迟、抖动、丢包、晚高峰测速、流媒体解锁和套餐选择等常见问题。从基础概念到错误排查，帮助你读懂机场测评数据。",
+  keywords: ["机场百科", "VPN知识", "机场订阅", "订阅链接", "订阅失败", "IEPL专线", "IPLC专线", "延迟", "抖动", "丢包", "晚高峰测速", "流媒体解锁", "机场套餐", "中转线路", "测速方法"],
   alternates: {
     canonical: "/wiki",
     languages: {
@@ -57,6 +57,10 @@ const entries = [
   { slug: "client-selection-guide", category: "基础概念", title: "Clash、Shadowrocket、sing-box 客户端怎么选？", excerpt: "对比主流客户端的平台支持、协议兼容性和配置方式，找到适合自己的工具。", date: "2026.09.14" },
   { slug: "bgp-vs-cn2-gia", category: "线路类型", title: "BGP、CN2 GIA 和 AS4809 是什么？影响速度吗？", excerpt: "解释常见的网络线路标识，了解它们与实际速度、稳定性的关系。", date: "2026.09.14" },
   { slug: "airport-security-risks", category: "风险提示", title: "使用机场 VPN 有哪些安全风险？如何降低？", excerpt: "从流量可见性、日志记录到跑路风险，整理使用代理服务时应注意的安全要点。", date: "2026.09.14" },
+  { slug: "vpn-speed-test-report", category: "测速指标", title: "机场测速报告怎么看？延迟、速度、抖动和成功率怎么比较？", excerpt: "先看测试条件和样本量，再比较延迟、下载速度、抖动、丢包和连接成功率，避免被单次峰值误导。", date: "2026.09.20" },
+  { slug: "packet-loss-and-reconnect", category: "测试方法", title: "机场测速里的丢包和重连怎么看？为什么速度快也会卡？", excerpt: "速度高不代表连接稳定。理解丢包、重连和失败次数，才能判断视频、会议和日常浏览是否顺畅。", date: "2026.09.20" },
+  { slug: "airport-test-location-guide", category: "运营商观察", title: "机场测速为什么要分地区和运营商？同一节点结果为何不同？", excerpt: "同一机场在移动、联通、电信和不同城市可能表现不同，测试报告必须把地区与运营商写清楚。", date: "2026.09.20" },
+  { slug: "subscription-error-fixes", category: "故障排查", title: "机场订阅导入失败怎么办？常见报错与解决方法", excerpt: "从订阅失效、401/403、连接超时到格式不兼容和节点为空，按顺序排查客户端无法更新订阅的问题。", date: "2026.09.20" },
 ];
 
 export default function WikiPage() {

@@ -30,6 +30,10 @@ export const WIKI_SLUGS = [
   "client-selection-guide",
   "bgp-vs-cn2-gia",
   "airport-security-risks",
+  "vpn-speed-test-report",
+  "packet-loss-and-reconnect",
+  "airport-test-location-guide",
+  "subscription-error-fixes",
 ] as const;
 
 export const ARTICLE_SLUGS = [
