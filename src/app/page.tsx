@@ -20,6 +20,7 @@ const providers = [
 ];
 
 const history = [
+  { date: "09.11", name: "云图", note: "中转与专线结合的均衡方案", score: 91, slug: "yuntu" },
   { date: "09.08", name: "瞬云", note: "中转与专线结合的日常选择", score: 86, slug: "shunyun" },
   { date: "09.01", name: "寰宇云", note: "IPLC 专线的均衡方案", score: 92, slug: "huanyuyun" },
   { date: "08.25", name: "筋斗云", note: "IEPL/IPLC 高峰线路观察", score: 92, slug: "jindouyun" },
@@ -57,7 +58,7 @@ export default function Home() {
 
       <section className="ticker"><div><span className="ticker-label">CURRENT SNAPSHOT</span><span>平均延迟 <b>{averageLatency}ms</b></span><span>平均下载 <b>{averageSpeed} Mbps</b></span><span>收录机场 <b>{providers.length}</b></span></div><span className="updated">UPDATED · {DATA_UPDATED_LABEL}</span></section>
 
-      <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">CURRENT FEATURE / {DATA_UPDATED_LABEL}</p><h2>本周推荐<br /><em>云图</em></h2><p>云图作为本周推荐服务，适合希望快速开始体验机场线路的用户。正式评分将根据每日测速和长期稳定性数据持续更新。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><Link className="dark-button" href="/airports/yuntu">查看云图详情 <span>↗</span></Link></div><div className="score-panel"><div className="score-ring"><strong>91</strong><span>/ 100</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "92%" }} /></div><div><span>速度表现</span><b style={{ width: "88%" }} /></div><div><span>性价比</span><b style={{ width: "93%" }} /></div></div><span className="verdict">基于 7 日数据</span></div></section>
+      <section className="review-band" id="reviews"><div className="review-intro"><p className="eyebrow">CURRENT FEATURE / {DATA_UPDATED_LABEL}</p><h2>本周推荐<br /><em>鲲鹏加速</em></h2><p>鲲鹏加速作为本周推荐服务，1 元试用套餐，全速专线不限速，支持 Netflix 和 ChatGPT 解锁，适合预算有限或想先体验再决定的用户。</p><p className="affiliate-note">推广链接 · 通过此链接注册可能为简单节点带来佣金，不影响公开评分。</p><Link className="dark-button" href="/airports/kunpeng">查看鲲鹏加速详情 <span>↗</span></Link></div><div className="score-panel"><div className="score-ring"><strong>88</strong><span>/ 100</span></div><div className="score-lines"><div><span>稳定性</span><b style={{ width: "89%" }} /></div><div><span>速度表现</span><b style={{ width: "95%" }} /></div><div><span>性价比</span><b style={{ width: "98%" }} /></div></div><span className="verdict">基于评测资料</span></div></section>
 
       <section className="archive-section archive-priority" id="archive"><div className="section-heading"><div><p className="eyebrow">THE ARCHIVE</p><h2>过往推荐</h2></div><Link className="text-link" href="/recommendations">查看全部 ↗</Link></div><div className="archive-list">{history.map((item) => <Link className="archive-item" href={`/airports/${item.slug}`} key={item.date}><span className="archive-date">{item.date}<small> / 2026</small></span><div><strong>{item.name}</strong><p>{item.note}</p></div><span className="archive-score">{item.score}<small> / 100</small></span><span className="arrow">↗</span></Link>)}</div></section>
 
