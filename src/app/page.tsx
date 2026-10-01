@@ -5,7 +5,7 @@ import Link from "next/link";
 import { DATA_UPDATED_LABEL } from "./site-data";
 
 const providers = [
-  { slug: "shunyun", name: "瞬云", tag: "约 200 Mbps · B+级", category: "中转", score: 86, latency: 110, speed: 198, unlock: "Netflix / ChatGPT", price: "¥16起", color: "coral", link: "https://ccc.jichang.best/#/register?code=MhKYAnsG" },
+  { slug: "shunyun", name: "瞬云", tag: "约 200 Mbps · B+级", category: "中转", score: 86, latency: 110, speed: 198, unlock: "Netflix / ChatGPT", price: "¥16起", color: "coral", link: "https://ddd.jichang.best/#/register?code=MhKYAnsG" },
   { slug: "huanyuyun", name: "寰宇云", tag: "IPLC 专线 · A级", category: "专线", score: 92, latency: 112, speed: 210, unlock: "Netflix / ChatGPT", price: "¥14起", color: "teal", link: "https://hyy.52kok.cn/#/register?code=CPBmzXgk" },
   { slug: "jindouyun", name: "筋斗云", tag: "IEPL/IPLC · A级", category: "专线", score: 92, latency: 114, speed: 205, unlock: "Netflix / ChatGPT", price: "¥16起", color: "yellow", link: "https://jdy.52kok.cn/#/register?code=wUKiwosG" },
   { slug: "jiuyun", name: "九云", tag: "约 200 Mbps · B+级", category: "低价", score: 86, latency: 116, speed: 192, unlock: "Netflix / ChatGPT", price: "¥6起", color: "blue", link: "https://888.jiuyundl.com/#/register?code=SDsIO7kq" },
