@@ -46,6 +46,8 @@ export const metadata: Metadata = {
 };
 
 const recommendations = [
+  { date: "2026.09.22", name: "鲲鹏加速", slug: "kunpeng", score: 88, note: "1 元试用 · 全速专线不限速", type: "全速专线", speed: "约 500 Mbps" },
+  { date: "2026.09.11", name: "云图", slug: "yuntu", score: 91, note: "中转与专线结合的均衡方案", type: "中转 + 专线", speed: "约 220 Mbps" },
   { date: "2026.09.08", name: "瞬云", slug: "shunyun", score: 86, note: "中转与专线结合的日常选择", type: "中转 + 专线", speed: "约 200 Mbps" },
   { date: "2026.09.01", name: "寰宇云", slug: "huanyuyun", score: 92, note: "IPLC 专线的均衡方案", type: "IPLC 专线", speed: "约 200 Mbps" },
   { date: "2026.08.25", name: "筋斗云", slug: "jindouyun", score: 92, note: "IEPL/IPLC 高峰线路观察", type: "IEPL / IPLC", speed: "约 200 Mbps" },

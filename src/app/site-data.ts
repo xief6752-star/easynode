@@ -1,6 +1,6 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://jiandanjiedian.com";
-export const DATA_UPDATED_AT = "2026-09-20";
-export const DATA_UPDATED_LABEL = "2026.09.20";
+export const DATA_UPDATED_AT = "2026-09-30";
+export const DATA_UPDATED_LABEL = "2026.09.30";
 
 export const AIRPORT_SLUGS = [
   "yuntu",
