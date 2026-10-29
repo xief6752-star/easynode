@@ -45,4 +45,7 @@ export const ARTICLE_SLUGS = [
   "budget-vs-premium",
   "peak-hour-stable",
   "client-comparison",
+  "clash-import-failed",
+  "vpn-connection-failed",
+  "slow-speed-reasons",
 ] as const;
