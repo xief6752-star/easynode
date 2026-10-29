@@ -15,6 +15,11 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  { category: "线路对比", date: "2026.09.30", title: "IEPL/IPLC 专线机场和中转机场应该怎么选？", excerpt: "专线和中转各有优劣。比较两者的成本、延迟、晚高峰稳定性，以及不同预算的选择策略。", href: "/articles/specialist-vs-relay" },
+  { category: "线路对比", date: "2026.09.30", title: "IEPL 和 IPLC 专线有什么区别？哪个更好？", excerpt: "两种专线类型的实际差异可能没想象那么大。学会用测试数据而不是线路名称判断。", href: "/articles/iepl-vs-iplc" },
+  { category: "套餐对比", date: "2026.09.30", title: "¥6 平价机场和 ¥15 高端机场，差别到底在哪？", excerpt: "价格差异反映线路、节点和服务质量区别。了解每个价位的实际限制，选择最适合的方案。", href: "/articles/budget-vs-premium" },
+  { category: "选购指南", date: "2026.09.30", title: "晚高峰最稳定的机场怎么选？看哪些指标？", excerpt: "连接成功率和重连次数最关键。学会对比真实的晚高峰数据，而不是单次速度峰值。", href: "/articles/peak-hour-stable" },
+  { category: "工具选择", date: "2026.09.30", title: "Clash、Shadowrocket、sing-box 客户端怎样选最合适？", excerpt: "不同平台的最佳选择不同。了解每个客户端的优缺点，选择与机场订阅格式相兼容的工具。", href: "/articles/client-comparison" },
   { category: "测速方法", date: "2026.09.11", title: "机场 VPN 怎么测才不容易被单次速度误导？", excerpt: "为什么一次测速不能代表长期体验，以及简单节点如何用多地区、多时段和晚高峰复测建立更可靠的结论。", href: "/wiki/vpn-test-methodology" },
   { category: "运营商观察", date: "2026.09.11", title: "移动、联通、电信的机场线路表现有什么差异？", excerpt: "从延迟、抖动、下载速度和连接成功率四个维度，理解同一节点在不同网络运营商下的表现变化。", href: "/wiki/latency-and-jitter" },
   { category: "选购指南", date: "2026.09.11", title: "晚高峰选机场，应该重点看哪些数据？", excerpt: "晚高峰是判断线路拥堵和稳定性的关键窗口。看懂延迟、速度下降比例和断线记录，避免只看白天峰值。", href: "/wiki/peak-hour-testing" },

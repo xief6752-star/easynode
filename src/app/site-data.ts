@@ -40,4 +40,9 @@ export const ARTICLE_SLUGS = [
   "how-we-test-vpn",
   "isp-comparison",
   "peak-hour-vpn",
+  "specialist-vs-relay",
+  "iepl-vs-iplc",
+  "budget-vs-premium",
+  "peak-hour-stable",
+  "client-comparison",
 ] as const;
